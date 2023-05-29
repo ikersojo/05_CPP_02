@@ -6,7 +6,7 @@
 /*   By: isojo-go <isojo-go@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 18:13:18 by isojo-go          #+#    #+#             */
-/*   Updated: 2023/05/25 20:52:15 by isojo-go         ###   ########.fr       */
+/*   Updated: 2023/05/29 20:40:08 by isojo-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Fixed::Fixed(int const num)
 {
 	float	fnum;
 
-	std::cout << "Int const∫ructor called" << std::endl;
+	std::cout << "Int constructor called" << std::endl;
 	fnum = roundf(num * (float)(1 << this->_bits));
 	this->_value = (int)fnum;
 }
