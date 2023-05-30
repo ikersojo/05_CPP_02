@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Triangle.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: isojo-go <isojo-go@student.42urduliz.co    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/30 15:58:02 by isojo-go          #+#    #+#             */
+/*   Updated: 2023/05/30 16:09:25 by isojo-go         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/Triangle.hpp"
 
 // Constructors
@@ -8,8 +20,8 @@ Triangle::Triangle(void)
 	if (DEBUG == 1)
 		std::cout << "Default Triangle constructor called" << std::endl;
 	this->_a = Point(0, 0);
-	this->_b = Point(1, 0);
-	this->_c = Point(0, 1);
+	this->_b = Point(0, 0);
+	this->_c = Point(0, 0);
 	this->deriveArea();
 }
 
@@ -43,44 +55,47 @@ Triangle::~Triangle(void)
 // Operator overload:
 /* ************************************************************************** */
 
-Triangle&       Triangle::operator=(const Triangle& rhs)
+Triangle&	Triangle::operator=(const Triangle& rhs)
 {
 	if (this != &rhs)
+		this->_a = rhs.getA();
+		this->_b = rhs.getB();
+		this->_c = rhs.getC();
 		this->_area = rhs.getArea();
 	return (*this);
 }
 
-
 // Instance methods:
 /* ************************************************************************** */
 
-void     Triangle::deriveArea(void)
+void	Triangle::deriveArea(void)
 {
 	Fixed	area;
 	
-	area = (this->_a.getX()*(this->_b.getY() - this->_c.getY()) + this->_b.getX()*(this->_c.getY() - this->_a.getY()) + this->_c.getX()*(this->_a.getY() - this->_b.getY())) * 0.5f;
-
+	area = (this->_a.getX()*(this->_b.getY() - this->_c.getY())
+			+ this->_b.getX()*(this->_c.getY() - this->_a.getY())
+			+ this->_c.getX()*(this->_a.getY() - this->_b.getY())) * 0.5f;
 	if (area.toFloat() < 0)
 		area = area * (-1.0f);
 	this->_area = area;
 }
 
-const Point     Triangle::getA(void) const
+const Point		Triangle::getA(void) const
 {
 	return (this->_a);
 }
 
-const Point     Triangle::getB(void) const
+const Point		Triangle::getB(void) const
 {
 	return (this->_b);
 }
 
-const Point     Triangle::getC(void) const
+const Point		Triangle::getC(void) const
 {
 	return (this->_c);
 }
 
-const Fixed     Triangle::getArea(void) const
+const Fixed		Triangle::getArea(void) const
 {
 	return (this->_area);
 }
