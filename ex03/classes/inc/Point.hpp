@@ -48,5 +48,3 @@
 	std::ostream& operator<<(std::ostream& os, const Point& point_instance);
 
 #endif // POINT_HPP
-
-// bool bsp(Point const a, Point const b, Point const c, Point const point);
