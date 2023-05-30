@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #ifndef POINT_HPP
 	#define POINT_HPP
 	#ifndef DEBUG
@@ -33,7 +32,7 @@
 			~Point(void);
 
 			// Operator overload:
-			Point&	operator=(const Point& point_instance);
+			Point&	operator=(const Point& rhs);
 
 			// Instance methods:
 			const Fixed&	getX(void) const;

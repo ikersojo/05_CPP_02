@@ -44,9 +44,13 @@ int main(void)
 	printYellowLine("pAB: ");
 	std::cout << pAB << std::endl;
 
-	pZero = pFloat;
+	printYellowLine("after b = a --> pAA: ");
+	b = a;
+	Point	pAA(a, b);
+	std::cout << pAA << std::endl;
 
 	printYellowLine("after pZero = pFloat --> pZero: ");
+	pZero = pFloat;
 	std::cout << pZero << std::endl;
 
 	/* ********************************************************************* */

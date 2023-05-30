@@ -18,7 +18,7 @@
 Fixed::Fixed(void) : _value(0)
 {
 	if (DEBUG == 1)
-		std::cout << "Default constructor called" << std::endl;
+		std::cout << "Default Fixed constructor called" << std::endl;
 }
 
 Fixed::Fixed(int const num)
@@ -26,7 +26,7 @@ Fixed::Fixed(int const num)
 	float	fnum;
 
 	if (DEBUG == 1)
-		std::cout << "Int constructor called" << std::endl;
+		std::cout << "Int Fixed constructor called" << std::endl;
 	fnum = roundf(num * (float)(1 << this->_bits));
 	this->_value = (int)fnum;
 }
@@ -36,7 +36,7 @@ Fixed::Fixed(float const num)
 	float	fnum;
 
 	if (DEBUG == 1)
-		std::cout << "Float constructor called" << std::endl;
+		std::cout << "Float Fixed constructor called" << std::endl;
 	fnum = roundf(num * (float)(1 << this->_bits));
 	this->_value = (int)fnum;
 }
@@ -44,7 +44,7 @@ Fixed::Fixed(float const num)
 Fixed::Fixed(const Fixed& fixed_instance)
 {
 	if (DEBUG == 1)
-		std::cout << "Copy constructor called" << std::endl;
+		std::cout << "Copy Fixed constructor called" << std::endl;
 	*this = fixed_instance;
 }
 
@@ -54,7 +54,7 @@ Fixed::Fixed(const Fixed& fixed_instance)
 Fixed::~Fixed(void)
 {
 	if (DEBUG == 1)
-		std::cout << "Destructor called" << std::endl;
+		std::cout << "Fixed Destructor called" << std::endl;
 }
 
 // Operator overload:
@@ -62,7 +62,8 @@ Fixed::~Fixed(void)
 
 Fixed&	Fixed::operator=(const Fixed& fixed_instance)
 {
-	this->_value = fixed_instance.getRawBits();
+	if (this != &fixed_instance)
+		this->_value = fixed_instance.getRawBits();
 	return (*this);
 }
 
